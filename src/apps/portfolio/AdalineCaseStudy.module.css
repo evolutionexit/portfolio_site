@@ -1,0 +1,280 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+
+.page {
+  flex: 1;
+  padding: 96px 80px 96px;
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.backLink {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: color 0.15s;
+}
+.backLink:hover { color: var(--ink); }
+
+.header { margin-bottom: 20px; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.statusRow {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 40px;
+}
+
+.status {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 2px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.statusLink {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  transition: color 0.15s;
+}
+.statusLink:hover { color: var(--accent); }
+
+.lede {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 680px;
+  margin-bottom: 64px;
+}
+
+.section { margin-bottom: 64px; }
+
+.sectionTitle {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 22px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sectionTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Diagram ── */
+.diagramWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 16px;
+  margin-bottom: 18px;
+}
+
+.diagramCaption {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 680px;
+}
+
+/* ── Build timeline ── */
+.timeline { display: flex; flex-direction: column; }
+
+.tlItem {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tlItem:first-of-type { border-top: 1px solid var(--border); }
+
+.tlStage {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  padding-top: 1px;
+}
+
+.tlDesc {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── Problems solved ── */
+.problem { margin-bottom: 30px; }
+.problem:last-child { margin-bottom: 0; }
+
+.problemTitle {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.problemText {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 680px;
+}
+
+/* ── Now / active work ── */
+.nowList { display: flex; flex-direction: column; gap: 18px; }
+
+.nowItem {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+}
+
+.nowDot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  margin-top: 7px;
+}
+.nowDot[data-pain="true"] { background: var(--ink-3); }
+
+.nowText {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.75;
+  font-weight: 300;
+}
+.nowText strong { color: var(--ink); font-weight: 500; }
+
+/* ── Protocol replay widget ── */
+.replay {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.replayHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.replayLabel {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+}
+
+.replayBtn {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--border-2);
+  border-radius: 3px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.replayBtn:hover { border-color: var(--accent); }
+
+.replayBody {
+  padding: 18px 20px 20px;
+  min-height: 260px;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.85;
+}
+
+.replayLine { white-space: pre-wrap; }
+.replaySent    { color: var(--ink-2); }
+.replayRecv    { color: var(--accent); }
+.replayInfo    { color: var(--ink-3); }
+.replayWarn    { color: #e0a75e; }
+.replaySuccess { color: var(--green); }
+
+.replayCaret {
+  display: inline-block;
+  width: 6px; height: 12px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: replayBlink 1s step-end infinite;
+}
+@keyframes replayBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── Companion callout ── */
+.companion {
+  padding: 20px 24px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.75;
+  font-weight: 300;
+}
+.companion strong { color: var(--ink); font-weight: 500; }
+
+/* ── CTA row ── */
+.ctaRow { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+
+.ctaPrimary {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 6px;
+  transition: color 0.15s;
+}
+.ctaPrimary:hover { color: var(--accent-2); }
+
+.ctaSecondary {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+  transition: color 0.15s;
+}
+.ctaSecondary:hover { color: var(--ink); }
+
+@media (max-width: 700px) {
+  .page { padding: 80px 16px 60px; }
+  .tlItem { grid-template-columns: 1fr; gap: 4px; }
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
 import styles from './Projects.module.css'
@@ -13,6 +14,7 @@ interface Project {
   statusFr: string
   statusEn: string
   link?: string
+  detailPath?: string
 }
 
 const projects: Project[] = [
@@ -27,6 +29,7 @@ const projects: Project[] = [
     statusFr: 'en cours',
     statusEn: 'active',
     link: 'https://github.com/evolutionexit/Adaline',
+    detailPath: '/projects/adaline',
   },
   {
     year: '2025',
@@ -91,7 +94,13 @@ export default function Projects() {
                   </a>
                 )}
               </div>
-              <div className={styles.cardTitle}>{t(p.titleFr, p.titleEn, lang)}</div>
+              {p.detailPath ? (
+                <Link to={p.detailPath} className={styles.cardTitleLink}>
+                  <div className={styles.cardTitle}>{t(p.titleFr, p.titleEn, lang)} →</div>
+                </Link>
+              ) : (
+                <div className={styles.cardTitle}>{t(p.titleFr, p.titleEn, lang)}</div>
+              )}
               <p className={styles.desc}>{t(p.descFr, p.descEn, lang)}</p>
               <div className={styles.tags}>
                 {p.tags.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}

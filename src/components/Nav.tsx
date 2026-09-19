@@ -15,6 +15,7 @@ export default function Nav() {
         <li><NavLink to="/" end className={({ isActive }) => isActive ? styles.active : ''}>{t('accueil', 'home', lang)}</NavLink></li>
         <li><NavLink to="/projects" className={({ isActive }) => isActive ? styles.active : ''}>{t('projets', 'projects', lang)}</NavLink></li>
         <li><NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>{t('à propos', 'about', lang)}</NavLink></li>
+        <li><NavLink to="/notes" className={({ isActive }) => isActive ? styles.active : ''}>notes</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => isActive ? styles.active : ''}>contact</NavLink></li>
       </ul>
 

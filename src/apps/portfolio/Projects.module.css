@@ -83,6 +83,12 @@
   letter-spacing: -0.01em;
 }
 
+.cardTitleLink {
+  display: inline-block;
+  transition: color 0.15s;
+}
+.cardTitleLink:hover .cardTitle { color: var(--accent-2); }
+
 .desc {
   font-size: 13px;
   color: var(--ink-2);

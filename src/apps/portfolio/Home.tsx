@@ -1,28 +1,46 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
+import { entries as notesEntries } from './notesData'
 import styles from './Home.module.css'
 
 const tags = ['C / Embedded', 'Python', 'React', 'TypeScript', 'MQTT', 'Raspberry Pi', 'Linux', 'TinyUSB']
 
-const currently = [
+const latestNote = notesEntries[0]
+
+const selectedWork = [
   {
+    year: '2024 —',
+    status: 'active' as const,
+    statusFr: 'en cours',
+    statusEn: 'active',
     titleFr: 'Adaline',
     titleEn: 'Adaline',
-    descFr: "Contrôle clavier USB sans fil — installation d'OS à distance sur une chaîne C → React complète.",
-    descEn: 'Wireless USB keyboard control — remote OS install over a full C → React chain.',
+    descFr: "Installation d'OS à distance par émulation clavier USB — du Pico W au dashboard React, de bout en bout.",
+    descEn: 'Remote OS install via USB keyboard emulation — Pico W to React dashboard, end to end.',
+    to: '/projects/adaline',
   },
   {
-    titleFr: 'Bachelor, UNIGE',
-    titleEn: 'Bachelor, UNIGE',
-    descFr: 'Mathématiques, Informatique & Sciences du numérique — en route vers l’EPFL / ETH.',
-    descEn: 'Mathematics, CS & Digital Sciences — on the way to EPFL / ETH.',
+    year: '2025',
+    status: 'live' as const,
+    statusFr: 'en ligne',
+    statusEn: 'live',
+    titleFr: 'mmoors.me',
+    titleEn: 'mmoors.me',
+    descFr: 'Ce site. React, Vite, TypeScript, système i18n FR/EN maison.',
+    descEn: 'This site. React, Vite, TypeScript, a hand-rolled FR/EN i18n system.',
+    to: '/projects',
   },
   {
-    titleFr: 'Ouvert aux stages',
-    titleEn: 'Open to internships',
-    descFr: 'Systèmes embarqués, développement logiciel, informatique.',
-    descEn: 'Embedded systems, software development, CS.',
+    year: '2025',
+    status: 'done' as const,
+    statusFr: 'terminé',
+    statusEn: 'done',
+    titleFr: 'CartPole — Q-Learning & PPO',
+    titleEn: 'CartPole — Q-Learning & PPO',
+    descFr: "Q-Learning contre PPO sur l'environnement CartPole de Gymnasium, en PyTorch.",
+    descEn: "Q-Learning vs PPO on Gymnasium's CartPole environment, in PyTorch.",
+    to: '/projects',
   },
 ]
 
@@ -45,8 +63,8 @@ export default function Home() {
 
           <p className={`${styles.desc} fade-up`} style={{ animationDelay: '0.2s' }}>
             {t(
-              "Je construis des systèmes qui relient le matériel et le logiciel — du firmware en C sur microcontrôleur jusqu'au dashboard React. Bientôt à l'UNIGE, en route vers l'EPFL.",
-              'I build systems that bridge hardware and software — from C firmware on microcontrollers to React dashboards. Incoming UNIGE, heading toward EPFL.',
+              "Je construis des systèmes qui relient matériel et logiciel, du firmware en C aux dashboards React — bientôt à l'UNIGE, en route vers l'EPFL.",
+              'I build systems that bridge hardware and software, from C firmware to React dashboards — incoming UNIGE, headed for EPFL.',
               lang
             )}
           </p>
@@ -72,22 +90,56 @@ export default function Home() {
 
         <div className={`${styles.right} fade-up`} style={{ animationDelay: '0.24s' }}>
           <div className={styles.panel}>
-            <div className={styles.panelLabel}>{t('en ce moment', 'currently', lang)}</div>
+            <div className={styles.panelLabel}>{t('en ce moment', 'right now', lang)}</div>
             <div className={styles.panelList}>
-              {currently.map((item, i) => (
-                <div key={i}>
-                  <div className={styles.panelItem}>
-                    <div className={styles.panelTitle}>{t(item.titleFr, item.titleEn, lang)}</div>
-                    <div className={styles.panelDesc}>{t(item.descFr, item.descEn, lang)}</div>
-                  </div>
-                  {i < currently.length - 1 && <div className={styles.panelDivider} />}
+
+              <div className={styles.panelItem}>
+                <Link to="/notes" className={styles.panelTitleLink}>
+                  <div className={styles.panelTitle}>{t(latestNote.titleFr, latestNote.titleEn, lang)}</div>
+                </Link>
+                <div className={styles.panelDesc}>{t('dernière entrée du journal →', 'latest log entry →', lang)}</div>
+              </div>
+              <div className={styles.panelDivider} />
+
+              <div className={styles.panelItem}>
+                <div className={styles.panelTitle}>Adaline v2</div>
+                <div className={styles.panelDesc}>
+                  {t('point d’accès direct sur le Pi pour réduire la latence UDP.', 'direct Pi access point to cut UDP latency.', lang)}
                 </div>
-              ))}
+              </div>
+              <div className={styles.panelDivider} />
+
+              <div className={styles.panelItem}>
+                <div className={styles.panelTitle}>{t('ouvert aux stages', 'open to internships', lang)}</div>
+                <div className={styles.panelDesc}>
+                  {t('systèmes embarqués, développement logiciel, informatique.', 'embedded systems, software development, CS.', lang)}
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
 
       </div>
+
+      <div className={styles.work}>
+        <div className={`${styles.workHeader} fade-up`} style={{ animationDelay: '0.1s' }}>
+          {t('travaux sélectionnés', 'selected work', lang)}
+        </div>
+        <div className={styles.workGrid}>
+          {selectedWork.map((w, i) => (
+            <Link key={i} to={w.to} className={`${styles.workCard} fade-up`} style={{ animationDelay: `${0.16 + i * 0.06}s` }}>
+              <div className={styles.workMeta}>
+                <span className={styles.workYear}>{w.year}</span>
+                <span className={`${styles.workStatus} ${styles[w.status]}`}>{t(w.statusFr, w.statusEn, lang)}</span>
+              </div>
+              <div className={styles.workTitle}>{t(w.titleFr, w.titleEn, lang)}</div>
+              <p className={styles.workDesc}>{t(w.descFr, w.descEn, lang)}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       <Footer />
     </div>
   )
