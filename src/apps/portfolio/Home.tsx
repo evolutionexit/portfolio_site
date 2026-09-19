@@ -1,12 +1,9 @@
 import { useNavigate, Link } from 'react-router-dom'
 import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
-import { entries as notesEntries } from './notesData'
 import styles from './Home.module.css'
 
 const tags = ['C / Embedded', 'Python', 'React', 'TypeScript', 'MQTT', 'Raspberry Pi', 'Linux', 'TinyUSB']
-
-const latestNote = notesEntries[0]
 
 const selectedWork = [
   {
@@ -95,9 +92,9 @@ export default function Home() {
 
               <div className={styles.panelItem}>
                 <Link to="/notes" className={styles.panelTitleLink}>
-                  <div className={styles.panelTitle}>{t(latestNote.titleFr, latestNote.titleEn, lang)}</div>
+                  <div className={styles.panelTitle}>{t('problèmes & réflexions', 'problems & thoughts', lang)}</div>
                 </Link>
-                <div className={styles.panelDesc}>{t('dernière entrée du journal →', 'latest log entry →', lang)}</div>
+                <div className={styles.panelDesc}>{t('notes de construction, surtout Adaline →', 'building notes, mostly Adaline →', lang)}</div>
               </div>
               <div className={styles.panelDivider} />
 
