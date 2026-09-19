@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   cursor: text;
 }
 
@@ -39,6 +40,7 @@
 .body {
   flex: 1;
   overflow-y: auto;
+  overflow-x: auto;
   padding: 14px 16px 8px;
   display: flex;
   flex-direction: column;
@@ -53,7 +55,7 @@
   font-family: var(--mono);
   font-size: 11.5px;
   line-height: 1.75;
-  white-space: pre;
+  white-space: pre-wrap;
   letter-spacing: 0.01em;
 }
 
