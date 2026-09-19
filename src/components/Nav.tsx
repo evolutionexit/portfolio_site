@@ -7,13 +7,15 @@ export default function Nav() {
 
   return (
     <nav className={styles.nav}>
-      <NavLink to="/" className={styles.logo}>MM</NavLink>
+      <NavLink to="/" className={styles.logo}>
+        <span>~/</span>mmoors
+      </NavLink>
 
       <ul className={styles.links}>
-        <li><NavLink to="/" end className={({ isActive }) => isActive ? styles.active : ''}>{t('Accueil', 'Home', lang)}</NavLink></li>
-        <li><NavLink to="/projects" className={({ isActive }) => isActive ? styles.active : ''}>{t('Projets', 'Projects', lang)}</NavLink></li>
-        <li><NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>{t('À propos', 'About', lang)}</NavLink></li>
-        <li><NavLink to="/contact" className={({ isActive }) => isActive ? styles.active : ''}>Contact</NavLink></li>
+        <li><NavLink to="/" end className={({ isActive }) => isActive ? styles.active : ''}>{t('accueil', 'home', lang)}</NavLink></li>
+        <li><NavLink to="/projects" className={({ isActive }) => isActive ? styles.active : ''}>{t('projets', 'projects', lang)}</NavLink></li>
+        <li><NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>{t('à propos', 'about', lang)}</NavLink></li>
+        <li><NavLink to="/contact" className={({ isActive }) => isActive ? styles.active : ''}>contact</NavLink></li>
       </ul>
 
       <div className={styles.langToggle}>

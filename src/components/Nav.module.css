@@ -3,56 +3,59 @@
   z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
-  height: 60px;
-  background: rgba(247,245,240,0.92);
+  height: 52px;
+  background: rgba(14,15,17,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
 .logo {
-  font-family: var(--serif);
-  font-size: 18px;
-  color: var(--ink);
-  letter-spacing: -0.02em;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
 }
+.logo span { color: var(--ink-3); }
 
 .links {
-  display: flex; gap: 32px;
+  display: flex; gap: 28px;
   list-style: none;
 }
 
 .links a {
   font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-2);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color 0.2s;
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  transition: color 0.15s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
 }
-.links a:hover, .links a.active { color: var(--accent); }
+.links a:hover { color: var(--ink); }
+.links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 .langToggle {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
+  display: flex; gap: 1px;
 }
 
 .langBtn {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  padding: 5px 10px;
+  padding: 4px 9px;
   background: transparent;
-  border: none;
+  border: 1px solid var(--border);
   cursor: pointer;
   color: var(--ink-3);
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
-.langActive { background: var(--accent) !important; color: #fff !important; }
+.langBtn:first-child { border-radius: 3px 0 0 3px; }
+.langBtn:last-child  { border-radius: 0 3px 3px 0; border-left: none; }
+.langActive { background: var(--accent-dim) !important; color: var(--accent) !important; border-color: var(--accent) !important; }
 
 @media (max-width: 700px) {
-  .nav { padding: 0 20px; }
+  .nav { padding: 0 16px; }
   .links { gap: 16px; }
 }

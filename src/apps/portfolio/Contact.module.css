@@ -2,97 +2,97 @@
 
 .page {
   flex: 1;
-  padding: 120px 48px 80px;
-  max-width: 900px;
+  padding: 96px 80px 80px;
+  max-width: 1000px;
   margin: 0 auto;
   width: 100%;
 }
 
-.header {
-  margin-bottom: 48px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-}
+.header { margin-bottom: 48px; }
 
 .eyebrow {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
 }
 
 .title {
-  font-family: var(--serif);
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-family: var(--mono);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  margin-bottom: 2px;
+  gap: 1px;
+  margin-bottom: 1px;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 28px 32px;
-  transition: border-color 0.2s;
+  background: var(--bg-2);
+  padding: 24px 28px;
+  transition: background 0.15s;
 }
-.card:hover { border-color: var(--accent); }
+.card:hover { background: var(--bg-3); }
 
 .cardLabel {
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--ink-3);
   margin-bottom: 8px;
 }
 
 .cardValue {
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--accent);
-  text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
-.cardValue:hover { color: var(--accent-light); }
+.cardValue:hover { color: var(--accent-2); }
 
 .cvBtn {
   display: flex; align-items: center; gap: 16px;
   background: var(--accent);
-  color: #fff;
-  padding: 20px 32px;
+  color: var(--bg);
+  padding: 18px 28px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  font-weight: 500;
   width: 100%;
-  transition: background 0.2s;
+  transition: background 0.15s;
   text-decoration: none;
-  margin-bottom: 2px;
+  border: 1px solid var(--accent);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 40px;
 }
-.cvBtn:hover { background: var(--accent-light); }
+.cvBtn:hover { background: var(--accent-2); border-color: var(--accent-2); }
 
-.arrow { font-size: 18px; margin-left: auto; }
+.arrow { font-size: 16px; margin-left: auto; }
 
 .note {
-  padding: 24px 28px;
+  padding: 20px 24px;
+  background: var(--bg-2);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  font-size: 14px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
   color: var(--ink-2);
-  line-height: 1.7;
-  margin-top: 40px;
+  line-height: 1.75;
+  font-family: var(--mono);
 }
 
 @media (max-width: 700px) {
-  .page { padding: 100px 20px 60px; }
+  .page { padding: 80px 16px 60px; }
   .grid { grid-template-columns: 1fr; }
 }

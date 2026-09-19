@@ -3,7 +3,7 @@ import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
 import styles from './Home.module.css'
 
-const tags = ['Python', 'C / Embedded', 'React', 'MQTT', 'Raspberry Pi', 'Linux', 'TypeScript']
+const tags = ['C / Embedded', 'Python', 'React', 'TypeScript', 'MQTT', 'Raspberry Pi', 'Linux', 'TinyUSB']
 
 export default function Home() {
   const { lang } = useLang()
@@ -12,28 +12,37 @@ export default function Home() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.hero}>
-        <p className={`${styles.eyebrow} fade-up`} style={{ animationDelay: '0.05s' }}>
-          {t('Étudiant · Développeur · Alsace', 'Student · Developer · Alsace', lang)}
-        </p>
-        <h1 className={`${styles.name} fade-up`} style={{ animationDelay: '0.15s' }}>
-          Michel<br /><em>Moors</em>
+        <div className={`${styles.prompt} fade-up`} style={{ animationDelay: '0.05s' }}>
+          <span className={styles.ps1}>mmoors@debian</span>
+          <span className={styles.cmd}>:~$</span>
+          <span>whoami</span>
+        </div>
+
+        <h1 className={`${styles.name} fade-up`} style={{ animationDelay: '0.12s' }}>
+          Michel
         </h1>
-        <p className={`${styles.desc} fade-up`} style={{ animationDelay: '0.25s' }}>
+        <div className={`${styles.nameLine2} fade-up`} style={{ animationDelay: '0.18s' }}>
+          Moors<span className={styles.cursor} />
+        </div>
+
+        <p className={`${styles.desc} fade-up`} style={{ animationDelay: '0.26s' }}>
           {t(
-            "Passionné par les systèmes embarqués, le développement logiciel et les mathématiques. En Terminale au Lycée Don Bosco, je construis des projets qui relient le matériel et le logiciel.",
-            "Passionate about embedded systems, software development, and mathematics. Final-year student at Lycée Don Bosco, building projects that bridge hardware and software.",
+            "Développeur embarqué & web. Je construis des systèmes qui relient le matériel et le logiciel — du firmware en C sur microcontrôleur jusqu'au dashboard React. Bientôt à l'UNIGE, en route vers l'EPFL.",
+            "Embedded & web developer. I build systems that bridge hardware and software — from C firmware on microcontrollers to React dashboards. Incoming UNIGE, heading toward EPFL.",
             lang
           )}
         </p>
-        <div className={`${styles.tags} fade-up`} style={{ animationDelay: '0.35s' }}>
+
+        <div className={`${styles.tags} fade-up`} style={{ animationDelay: '0.32s' }}>
           {tags.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}
         </div>
-        <div className={`${styles.cta} fade-up`} style={{ animationDelay: '0.45s' }}>
+
+        <div className={`${styles.cta} fade-up`} style={{ animationDelay: '0.38s' }}>
           <button className={styles.btnPrimary} onClick={() => nav('/projects')}>
-            {t('Voir mes projets', 'View my projects', lang)}
+            {t('→ voir mes projets', '→ view projects', lang)}
           </button>
           <button className={styles.btnSecondary} onClick={() => nav('/contact')}>
-            {t('Me contacter', 'Get in touch', lang)}
+            {t('me contacter', 'get in touch', lang)}
           </button>
         </div>
       </div>

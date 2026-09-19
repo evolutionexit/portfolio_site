@@ -5,21 +5,38 @@ import styles from './About.module.css'
 export default function About() {
   const { lang } = useLang()
 
+  const stats = [
+    { labelFr: 'localisation', labelEn: 'location', valueFr: 'Haute-Savoie, FR', valueEn: 'Haute-Savoie, FR' },
+    { labelFr: 'formation', labelEn: 'education', valueFr: 'UNIGE — Math, Info & Sciences du numérique', valueEn: 'UNIGE — Maths, CS & Digital Sciences' },
+    { labelFr: 'objectif', labelEn: 'goal', valueFr: 'Bachelor Genève → Master EPFL / ETH', valueEn: 'Bachelor Geneva → Master EPFL / ETH' },
+    { labelFr: 'langues', labelEn: 'languages', valueFr: 'FR · EN (C1) · DE', valueEn: 'FR · EN (C1) · DE' },
+  ]
+
+  const education = [
+    { date: '2025 —', role: t('Bachelor — Mathématiques, Informatique & Sciences du numérique', 'Bachelor — Maths, CS & Digital Sciences', lang), org: 'UNIGE, Genève' },
+    { date: '2022 – 2025', role: t('Terminale Générale — Maths & Physique-Chimie', 'Baccalauréat — Maths & Physics', lang), org: 'Lycée Don Bosco, Landser' },
+    { date: '2022 · 3 sem.', role: t("Stage — Industrie pharmaceutique", 'Internship — Pharmaceutical industry', lang), org: 'Roche' },
+    { date: '2024', role: t("Stage d'observation — Commerce", 'Observation Internship — Retail', lang), org: 'Intersport' },
+  ]
+
+  const achievements = [
+    { date: '2025', role: 'Grand Oral — Mathématiques', org: t("Gradient & RL : Q-Learning vs PPO sur CartPole", 'Gradient & RL: Q-Learning vs PPO on CartPole', lang) },
+    { date: '2024', role: t('Olympiades de NSI — projet classé', 'NSI Olympiad — ranked project', lang), org: t('Tour 3D du Louvre', '3D Louvre tour', lang) },
+    { date: '2023 – 2024', role: t('Olympiades de Mathématiques', 'Mathematics Olympiad', lang), org: 'Lycée Don Bosco' },
+    { date: '2023 – 2024', role: t('Rallye des Mathématiques', 'Mathematics Rally', lang), org: t('2 participations', '2 participations', lang) },
+    { date: '2025', role: 'PSC1', org: t('Prévention et Secours Civiques', 'French First Aid Certificate', lang) },
+  ]
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.page}>
         <div className={`${styles.header} fade-up`} style={{ animationDelay: '0.05s' }}>
-          <p className={styles.eyebrow}>{t('Qui suis-je', 'Who I am', lang)}</p>
-          <h2 className={styles.title}>{t('À propos', 'About', lang)}</h2>
+          <p className={styles.eyebrow}>// {t('qui suis-je', 'who I am', lang)}</p>
+          <h2 className={styles.title}>{t('à propos', 'about', lang)}</h2>
         </div>
 
         <div className={`${styles.statsGrid} fade-up`} style={{ animationDelay: '0.1s' }}>
-          {[
-            { labelFr: 'Localisation', labelEn: 'Location', valueFr: 'Landser, Alsace', valueEn: 'Landser, Alsace' },
-            { labelFr: 'Niveau', labelEn: 'Level', valueFr: 'Terminale Générale', valueEn: 'Final year (Bac Général)' },
-            { labelFr: 'Objectif', labelEn: 'Goal', valueFr: 'Bachelor Genève → EPFL / ETH', valueEn: 'Bachelor Geneva → EPFL / ETH' },
-            { labelFr: 'Langues', labelEn: 'Languages', valueFr: 'FR · EN (C1) · DE', valueEn: 'FR · EN (C1) · DE' },
-          ].map((s, i) => (
+          {stats.map((s, i) => (
             <div key={i} className={styles.statBlock}>
               <div className={styles.statLabel}>{t(s.labelFr, s.labelEn, lang)}</div>
               <div className={styles.statValue}>{t(s.valueFr, s.valueEn, lang)}</div>
@@ -29,60 +46,36 @@ export default function About() {
 
         <p className={`${styles.bio} fade-up`} style={{ animationDelay: '0.18s' }}>
           {t(
-            "Je suis étudiant en Terminale au Lycée Don Bosco de Landser, avec des spécialités en Mathématiques et Physique-Chimie. Ce qui me motive, c'est de comprendre comment les choses fonctionnent — du firmware qui tourne sur un microcontrôleur jusqu'à l'interface qui s'affiche sur un écran. Je pratique le football en compétition et j'aime les jeux de logique.",
-            "I'm a final-year student at Lycée Don Bosco in Landser, specialising in Mathematics and Physics-Chemistry. What drives me is understanding how things work — from firmware running on a microcontroller to the interface displayed on a screen. I play football competitively and enjoy logic games.",
+            "Ce qui me motive, c'est de comprendre comment les choses fonctionnent — du firmware qui tourne sur un microcontrôleur jusqu'à l'interface qui s'affiche sur un écran. Je construis des systèmes complets, du hardware au cloud. Je joue aux échecs, je lis des manga, et j'aime les problèmes qui résistent.",
+            "What drives me is understanding how things work — from firmware running on a microcontroller to the interface on a screen. I build end-to-end systems, from hardware to cloud. I play chess, read manga, and enjoy problems that push back.",
             lang
           )}
         </p>
 
-        <div className={`${styles.timeline} fade-up`} style={{ animationDelay: '0.26s' }}>
+        <div className={`${styles.section} fade-up`} style={{ animationDelay: '0.24s' }}>
+          <div className={styles.sectionTitle}>{t('formation & expériences', 'education & experience', lang)}</div>
+          {education.map((item, i) => (
+            <div key={i} className={styles.tlItem}>
+              <div className={styles.tlDate}>{item.date}</div>
+              <div className={styles.tlRight}>
+                <div className={styles.tlRole}>{item.role}</div>
+                <div className={styles.tlOrg}>{item.org}</div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-          <div className={styles.tlSectionTitle}>{t('Formation & Expériences', 'Education & Experience', lang)}</div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2022 — 2025</div>
-            <div className={styles.tlRole}>{t('Terminale Générale — Maths & Physique-Chimie', 'Baccalauréat Général — Maths & Physics', lang)}</div>
-            <div className={styles.tlOrg}>Lycée Don Bosco, Landser</div>
-          </div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2024</div>
-            <div className={styles.tlRole}>{t("Stage d'observation — Commerce & Distribution", 'Observation Internship — Retail', lang)}</div>
-            <div className={styles.tlOrg}>Intersport, Alsace</div>
-          </div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>{t('2022 · 3 semaines', '2022 · 3 weeks', lang)}</div>
-            <div className={styles.tlRole}>{t('Stage — Industrie pharmaceutique', 'Internship — Pharmaceutical industry', lang)}</div>
-            <div className={styles.tlOrg}>Roche</div>
-          </div>
-
-          <div className={styles.tlSectionTitle} style={{ marginTop: '32px' }}>{t('Distinctions', 'Achievements', lang)}</div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2025</div>
-            <div className={styles.tlRole}>PSC1</div>
-            <div className={styles.tlOrg}>{t('Prévention et Secours Civiques de niveau 1', 'French First Aid Certificate', lang)}</div>
-          </div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2023 — 2024</div>
-            <div className={styles.tlRole}>{t('Rallye des Mathématiques', 'Mathematics Rally', lang)}</div>
-            <div className={styles.tlOrg}>{t('2 participations', '2 participations', lang)}</div>
-          </div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2024</div>
-            <div className={styles.tlRole}>{t('Olympiades de NSI — projet classé', 'NSI Olympiad — ranked project', lang)}</div>
-            <div className={styles.tlOrg}>{t('Tour 3D du Louvre', '3D Louvre tour', lang)}</div>
-          </div>
-
-          <div className={styles.tlItem}>
-            <div className={styles.tlDate}>2023 — 2024</div>
-            <div className={styles.tlRole}>{t('Olympiades de Mathématiques', 'Mathematics Olympiad', lang)}</div>
-            <div className={styles.tlOrg}>{t('Lycée Don Bosco', 'Lycée Don Bosco', lang)}</div>
-          </div>
-
+        <div className={`${styles.section} fade-up`} style={{ animationDelay: '0.30s' }}>
+          <div className={styles.sectionTitle}>{t('distinctions', 'achievements', lang)}</div>
+          {achievements.map((item, i) => (
+            <div key={i} className={styles.tlItem}>
+              <div className={styles.tlDate}>{item.date}</div>
+              <div className={styles.tlRight}>
+                <div className={styles.tlRole}>{item.role}</div>
+                <div className={styles.tlOrg}>{item.org}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <Footer />
