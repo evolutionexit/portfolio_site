@@ -1,0 +1,110 @@
+.wrapper { height: 100vh; display: flex; flex-direction: column;  overflow: hidden;}
+
+.hero {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0px 150px 0px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; top: -120px; right: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(30,58,95,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.name em { font-style: italic; color: var(--accent); }
+
+.desc {
+  max-width: 520px;
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 40px;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--ink-2);
+}
+
+.cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btnPrimary {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #fff;
+  border: none; border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btnPrimary:hover { background: var(--accent-light); }
+
+.btnSecondary {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btnSecondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.scroll {
+  position: absolute; bottom: 40px; left: 48px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+}
+.scroll::before {
+  content: '';
+  display: block; width: 40px; height: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 700px) {
+  .hero { padding: 100px 20px 80px; }
+  .scroll { left: 20px; }
+}
