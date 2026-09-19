@@ -1,7 +1,7 @@
 import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
 import styles from './Contact.module.css'
-import cvPdf from '../../assets/cv.pdf' // Adjust path to where your PDF is stored
+import cvPdf from '../../../assets/cv.pdf' // Adjust path to where your PDF is stored
 
 export default function Contact() {
   const { lang } = useLang()
