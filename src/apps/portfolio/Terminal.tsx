@@ -115,7 +115,7 @@ const COMMANDS: Record<string, CommandFn> = {
     ['output', '  Location   Haute-Savoie, FR'],
     ['output', '  School     UNIGE (incoming)'],
     ['output', '  Goal       EPFL / ETH MSc'],
-    ['output', '  Hobbies    chess · manga · embedded systems'],
+    ['output', '  Hobbies    chess · sports · embedded systems'],
     ['blank',  ''],
   )}),
 
