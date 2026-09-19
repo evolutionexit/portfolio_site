@@ -3,9 +3,23 @@
 Site personnel de Michel Moors. React + Vite + TypeScript, bilingue FR/EN.
 
 ## Stack
-- React 18 + Vite + TypeScript
+- React 19 + Vite + TypeScript
 - React Router DOM
 - CSS Modules
+
+## Structure
+```
+index.html                     → point d'entrée (charge src/apps/portfolio/main.tsx)
+src/
+  apps/portfolio/
+    App_pi.tsx                 → routing (Home, Projects, Adaline, About, Notes, Contact)
+    Home.tsx / Projects.tsx / AdalineCaseStudy.tsx
+    About.tsx / Notes.tsx / Contact.tsx
+    notesData.ts                → contenu du journal de notes
+    index.css                   → styles globaux
+  components/                   → Nav, Footer
+  i18n/LangContext.tsx           → provider FR/EN
+```
 
 ## Démarrage local
 ```bash
@@ -22,6 +36,8 @@ npm run build
 
 ## Déploiement sur Cloudflare Pages
 
+Le repo contient un `wrangler.jsonc` (assets statiques servis depuis `dist/`, fallback SPA activé).
+
 1. Push ce repo sur GitHub
 2. Cloudflare Dashboard → Pages → Create a project → connecte le repo
 3. Build settings :
@@ -37,7 +53,9 @@ Pages → ton projet → Custom domains → ajoute `mmoors.me`
 (DNS déjà sur Cloudflare = configuration automatique)
 
 ## Personnalisation
-- **Email** → `src/pages/Contact.tsx`
-- **Ajouter un projet** → tableau `projects` dans `src/pages/Projects.tsx`
+- **Email** → `src/apps/portfolio/Contact.tsx`
+- **Ajouter un projet** → tableau `projects` dans `src/apps/portfolio/Projects.tsx`
+- **Notes / journal** → `src/apps/portfolio/notesData.ts`
 - **CV PDF** → place `cv.pdf` dans `public/` (le bouton pointe déjà sur `/cv.pdf`)
-- **Couleurs** → variables CSS dans `src/index.css`
+- **Couleurs** → variables CSS dans `src/apps/portfolio/index.css`
+- **Langues** → `src/i18n/LangContext.tsx`
