@@ -6,10 +6,10 @@ export default function About() {
   const { lang } = useLang()
 
   const stats = [
-    { labelFr: 'localisation', labelEn: 'location', valueFr: 'Haute-Savoie, FR', valueEn: 'Haute-Savoie, FR' },
+    { labelFr: 'localisation', labelEn: 'location', valueFr: 'Alsace, FR', valueEn: 'Alsace, FR' },
     { labelFr: 'formation', labelEn: 'education', valueFr: 'UNIGE — Math, Info & Sciences du numérique', valueEn: 'UNIGE — Maths, CS & Digital Sciences' },
     { labelFr: 'objectif', labelEn: 'goal', valueFr: 'Bachelor Genève → Master EPFL / ETH', valueEn: 'Bachelor Geneva → Master EPFL / ETH' },
-    { labelFr: 'langues', labelEn: 'languages', valueFr: 'FR · EN (C1) · DE', valueEn: 'FR · EN (C1) · DE' },
+    { labelFr: 'langues', labelEn: 'languages', valueFr: 'FR · EN (C1) · DE · NL', valueEn: 'FR · EN (C1) · DE · NL' },
   ]
 
   const education = [
