@@ -84,7 +84,7 @@ export default function Projects() {
                   {t(p.statusFr, p.statusEn, lang)}
                 </span>
                 {p.link && (
-                  <a href={p.link} target="_blank" rel="noopener" style={{ marginLeft: 'auto', fontFamily: 'var(--mono)', fontSize: '10px', color: 'var(--ink-3)', letterSpacing: '0.04em', transition: 'color 0.15s' }}
+                  <a href={p.link} target="_blank" rel="noopener" style={{ marginLeft: 'auto', fontFamily: 'var(--sans)', fontSize: '10px', color: 'var(--ink-3)', letterSpacing: '0.04em', transition: 'color 0.15s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--ink-3)')}>
                     ↗ {p.link.replace('https://', '')}

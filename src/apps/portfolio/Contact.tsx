@@ -1,7 +1,6 @@
 import { useLang, t } from '../../i18n/LangContext'
 import Footer from '../../components/Footer'
 import styles from './Contact.module.css'
-import cvPdf from '../../../assets/cv.pdf' // Adjust path to where your PDF is stored
 
 export default function Contact() {
   const { lang } = useLang()
@@ -26,8 +25,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Use the imported variable here */}
-          <a href={cvPdf} className={styles.cvBtn} download="cv.pdf">
+          <a href="/cv.pdf" className={styles.cvBtn} download="cv.pdf">
             <span>{t('↓ télécharger mon CV (PDF)', '↓ download CV (PDF)', lang)}</span>
             <span className={styles.arrow}>↓</span>
           </a>

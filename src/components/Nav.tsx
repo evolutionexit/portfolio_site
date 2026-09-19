@@ -8,7 +8,7 @@ export default function Nav() {
   return (
     <nav className={styles.nav}>
       <NavLink to="/" className={styles.logo}>
-        <span>~/</span>mmoors
+        Michel Moors
       </NavLink>
 
       <ul className={styles.links}>
