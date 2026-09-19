@@ -20,7 +20,7 @@ export default function Home() {
         </h1>
         <p className={`${styles.desc} fade-up`} style={{ animationDelay: '0.25s' }}>
           {t(
-            "Passionné par les systèmes embarqués, le développement logiciel et les mathématiques. En Terminale au Lycée Don Bosco, je construis des projets qui relient le matériel et le logiciel.",
+            "Passionné pa les systèmes embarqués, le développement logiciel et les mathématiques. En Terminale au Lycée Don Bosco, je construis des projets qui relient le matériel et le logiciel.",
             "Passionate about embedded systems, software development, and mathematics. Final-year student at Lycée Don Bosco, building projects that bridge hardware and software.",
             lang
           )}
